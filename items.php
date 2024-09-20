@@ -7,6 +7,7 @@
 </head>
 <body>
     <?php include('nav_bar.php') ?>
+    <?php include('config.php') ?>
 
     <form action="" method="post">
 
@@ -16,8 +17,10 @@
 
     <?php if(isset($_POST['test'])){
                         $_SESSION["information"] = $_POST['test'];
-
+                        $result = mysqli_query($con,"Select fname from users where id = 3 ");
+                        $print = mysqli_fetch_row($result);
                     echo $_SESSION["information"]."cool";
+                    echo $print[0];
                     }?>
 </body>
 </html>
